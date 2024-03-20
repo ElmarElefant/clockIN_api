@@ -1,0 +1,9 @@
+#https://stackoverflow.com/questions/48220794/how-to-redirect-php-to-html-using-htaccess
+#https://stackoverflow.com/questions/18615003/htaccess-redirect-all-sub-directories-under-sub-directory
+
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php?endpoint=$1 [NC, QSA,L]

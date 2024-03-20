@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Install H I L B A crm API</title>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        h1{
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .input-box{
+            width: 300px;
+            position: static;
+            top: 100px;
+            margin: 0 auto;
+        }
+        .input-box div{
+            width: 100%;
+            overflow: hidden;
+            font-size: 12px;
+            padding: 20px 0 2px 0;
+            border-bottom: 2px solid silver;
+        }
+        .input-box div label{
+            color: silver;
+        }
+
+        .input-box input{
+            border: none;
+            outline: none;
+            background: none;
+            font-size: 20px;
+            width: 100%;
+        }
+
+        .input-box button{
+            width: 100%;
+            background: none;
+            border: 1px solid silver;
+            padding: 5px;
+            margin-top: 15px;
+        }
+
+        .input-box button:hover{
+            background-color: silver;
+            color: white;
+        }
+
+        .error-box{
+            background: red;
+            padding: 10px;
+            color: white;
+            margin: 10px auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>H I L B A crm API :: Installation</h1>
+    <form action="install.inc.php" method="post">
+        <div class="input-box">
+            <div>
+                <label for="adminname">Administrator Name</label>
+                <input type="text" value="admin" required name="adminname" id="adminname">
+            </div>
+            <div>
+                <label for="adminpassword">Administrator Passwort</label>
+                <input type="password" required name="adminpassword" id="adminpassword">
+            </div>
+            <div>
+                <label for="adminemail">Administrator E-Mail</label>
+                <input type="email" value="admin@admin.com" required name="adminemail" id="adminemail">
+            </div>
+            <div>
+                <label for="servername">Servername</label>
+                <input type="text" value="localhost" required name="servername" id="servername">
+            </div>
+            <div>
+                <label for="databasename">Name der Datenbank</label>
+                <input type="text" value="xuhitoso_crm" required name="databasename" id="databasename">
+            </div>
+
+
+            <div>
+                <label for="databaseadmin">Datenbank Benutzername für die Installation</label>
+                <input type="text" value="xuhitoso_install" required name="databaseadmin" id="databaseadmin">
+            </div>
+            <div>
+                <label for="databaseadminpassword">Datenbank installations-Benutzer-Passwort</label>
+                <input type="password" value="qWg57qpWbx)A["  required name="databaseadminpassword" id="databaseadminpassword">
+            </div>
+
+
+            <div>
+                <label for="databaseusername">Datenbank Benutzername</label>
+                <input type="text" value="xuhitoso_crm" required name="databaseusername" id="databaseusername">
+            </div>
+            <div>
+                <label for="databaseuserpassword">Datenbank Benutzer-Passwort</label>
+                <input type="password" value="9pu%6Py&6d" required name="databaseuserpassword" id="databaseuserpassword">
+            </div>
+            <div>
+                <label for="systemlanguage">Systemsprache</label>
+                <input type="text" value="Deutsch" required name="systemlanguage" id="systemlanguage">
+            </div>
+            <div>
+                <label for="systemlanguagesymbol">Systemsprache Abkürzung</label>
+                <input type="text" value="DE" required maxlength="2" name="systemlanguagesymbol" id="systemlanguagesymbol">
+            </div>
+            <div>
+                <label for="dropall">Alle bestehenden Daten löschen.</label>
+                <input type="checkbox" name="dropall" id="dropall">
+            </div>
+
+
+            <button type="submit" required name="submit">INSTALL</button>
+        </div>
+    </form>
+
+
+</body>
+</html>
