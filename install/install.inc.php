@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Install H I L B A crm API</title>
+    <title>Install Clock IN API</title>
     <style>
         body{
             font-family: sans-serif;
@@ -39,13 +39,6 @@ if ( !file_exists( $configDir ) && !is_dir( $configDir ) ) {
 }
 echo "<p>Config-Ordner angelegt.</p>";
 
-//Uploads Verzeichnis. Erstellen wenn notwenidig
-$uploadsDir = "../uploads";
-if ( !file_exists( $uploadsDir ) && !is_dir( $uploadsDir ) ) {
-    mkdir( $uploadsDir );
-}
-echo "<p>Uploads-Ordner angelegt.</p>";
-
 //Config Datei schreiben.
 $configFile = $configDir ."/config.ini";
 $myfile = fopen( $configFile, "w") or die("Unable to open file!");
@@ -69,6 +62,32 @@ if ($res === false) {
 }
 
 echo "<p>Config Datei erfolgreich angelegt.</p>";
+
+
+//Htaccess schreiben.
+$htaccesFile = "../.htaccess";
+$myfile = fopen( $htaccesFile, "w") or die("Unable to open file!");
+if ($myfile===false) {
+    //Probleme beim Config-Datei schreiben.
+    die("<p  class='err'>htaccess Datei konnte nicht erstellt werden.</p>");
+}
+
+fwrite($myfile, "RewriteEngine On \n");
+fwrite($myfile, "RewriteCond %{REQUEST_FILENAME} !-d \n");
+fwrite($myfile, "RewriteCond %{REQUEST_FILENAME} !-f \n");
+fwrite($myfile, "RewriteRule ^(.*)$ index.php?endpoint=$1 [NC, QSA,L] \n");
+fclose($myfile);
+
+//Berechtigung der Config Datei ändern.
+$res = chmod($htaccesFile, 0600);
+if ($res === false) {
+    die("<p  class='err'>Berechtigung der htaccess-Datei können nicht angepasst werden.</p>");
+}
+
+echo "<p>htaccess Datei erfolgreich angelegt.</p>";
+
+
+
 
 require_once '../includes/scheme.php';
 require_once '../includes/schemeTranslator.php';
