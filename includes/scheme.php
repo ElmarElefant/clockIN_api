@@ -347,7 +347,7 @@ class schemes{
             ],
             [
                 "name" => "end",
-                "type" => "datetime(20)",
+                "type" => "datetime(0)",
                 "definition" => "DEFAULT NULL"   
             ],
             [
