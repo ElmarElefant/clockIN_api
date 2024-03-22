@@ -188,7 +188,6 @@ if(!empty($sql)){
         echo "<p class='err'> Fehler beim Erstellen der Fremdschlüssel.</p>";
         die();
     }
-
 }
 
 //Admin-User erstellen:
