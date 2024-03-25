@@ -71,7 +71,6 @@ header("Access-Control-Allow-Headers: content-type, authorization");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 
 
-echo "Hallo";
 
 // Ressourcen laden.
 require __DIR__ . "/includes/bootstrap.inc.php";
@@ -101,6 +100,7 @@ $payload = $contentType == "application/json" ? json_decode( file_get_contents('
 
 
 
+echo "Hallo";
 echo $_GET['endpoint'];
 
 
