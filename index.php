@@ -96,6 +96,11 @@ if($method != 'GET' && $contentType != "" && $contentType != "application/json")
 }
 $payload = $contentType == "application/json" ? json_decode( file_get_contents('php://input'), false) : null;
 
+
+
+echo $_GET['endpoint'];
+
+
 //Endpoint festlegen.
 //Bsp: ../api/users/14?arg=45
 //            |     L>14 ist eine Nummer, deshalb wird die selectIdAction im Controller aufgerufen. Ansonsten wäre dies die Action die im Controller aufgerufen wird.
