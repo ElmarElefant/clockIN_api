@@ -70,6 +70,9 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: content-type, authorization");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 
+
+echo "Hallo";
+
 // Ressourcen laden.
 require __DIR__ . "/includes/bootstrap.inc.php";
 

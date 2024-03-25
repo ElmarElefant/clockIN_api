@@ -75,7 +75,7 @@ if ($myfile===false) {
 fwrite($myfile, "RewriteEngine On \n");
 fwrite($myfile, "RewriteCond %{REQUEST_FILENAME} !-d \n");
 fwrite($myfile, "RewriteCond %{REQUEST_FILENAME} !-f \n");
-fwrite($myfile, "RewriteRule ^(.*)$ index.php?endpoint=$1 [NC, QSA,L] \n");
+fwrite($myfile, "RewriteRule ^(.*)$ index.php?endpoint=$1 [NC,QSA,L] \n");
 fclose($myfile);
 
 //Berechtigung der Config Datei ändern.
