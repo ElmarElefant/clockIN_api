@@ -81,6 +81,7 @@ class Output {
 
     echo "hier?";
             $error = $result->getMessage();
+    echo $error;
             $result = null;
             if($state == eState::Unknown){
                 $state = eState::Error;
