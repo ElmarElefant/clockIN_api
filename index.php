@@ -70,8 +70,6 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: content-type, authorization");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 
-
-
 // Ressourcen laden.
 require __DIR__ . "/includes/bootstrap.inc.php";
 
@@ -80,6 +78,9 @@ try {
     $database = new Database(DB_NAME, DB_SERVER, DB_USER, '9pu%6Py&6d');
 } catch (\Throwable $ex) {
     // die(outputString("Fehler beim Verbinden mit der Datenbank.", estate::Error));
+
+    echo "Hallo";
+
     Output::sendNow($ex);
     die();
 }
@@ -100,7 +101,6 @@ $payload = $contentType == "application/json" ? json_decode( file_get_contents('
 
 
 
-echo "Hallo";
 echo $_GET['endpoint'];
 
 
