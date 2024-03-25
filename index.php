@@ -80,7 +80,9 @@ try {
     // die(outputString("Fehler beim Verbinden mit der Datenbank.", estate::Error));
 
     echo "Hallo";
-
+    echo $ex;
+    echo "Hallo";
+    
     Output::sendNow($ex);
     die();
 }
