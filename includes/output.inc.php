@@ -78,6 +78,8 @@ class Output {
     static function sendNow(string|array|Throwable|null $result, eState $state = eState::Unknown, eStatusCode $statusCode = eStatusCode::Unknown, array|null $payload = null){
         $error = null;
         if($result instanceof Throwable){
+
+    echo "hier?";
             $error = $result->getMessage();
             $result = null;
             if($state == eState::Unknown){

@@ -78,11 +78,6 @@ try {
     $database = new Database(DB_NAME, DB_SERVER, DB_USER, '9pu%6Py&6d');
 } catch (\Throwable $ex) {
     // die(outputString("Fehler beim Verbinden mit der Datenbank.", estate::Error));
-
-    echo "Hallo";
-    echo $ex;
-    echo "Hallo";
-    
     Output::sendNow($ex);
     die();
 }
