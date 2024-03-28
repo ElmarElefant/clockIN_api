@@ -66,27 +66,27 @@ echo "<p>Config Datei erfolgreich angelegt.</p>";
 
 //Htaccess schreiben.
 $htaccesFile = "../.htaccess";
-$myfile = fopen( $htaccesFile, "w") or die("Unable to open file!");
-if ($myfile===false) {
-    //Probleme beim Config-Datei schreiben.
-    die("<p  class='err'>htaccess Datei konnte nicht erstellt werden.</p>");
+if (!file_exists($htaccesFile)) {
+    $myfile = fopen( $htaccesFile, "w") or die("Unable to open file!");
+    if ($myfile===false) {
+        //Probleme beim Config-Datei schreiben.
+        die("<p  class='err'>htaccess Datei konnte nicht erstellt werden.</p>");
+    }
+
+    fwrite($myfile, "RewriteEngine On \n");
+    fwrite($myfile, "RewriteCond %{REQUEST_FILENAME} !-d \n");
+    fwrite($myfile, "RewriteCond %{REQUEST_FILENAME} !-f \n");
+    fwrite($myfile, "RewriteRule ^(.*)$ index.php?endpoint=$1 [NC,QSA,L] \n");
+    fclose($myfile);
+
+    //Berechtigung der Config Datei ändern.
+    $res = chmod($htaccesFile, 0644);
+    if ($res === false) {
+        die("<p  class='err'>Berechtigung der htaccess-Datei können nicht angepasst werden.</p>");
+    }
+
+    echo "<p>htaccess Datei erfolgreich angelegt.</p>";
 }
-
-fwrite($myfile, "RewriteEngine On \n");
-fwrite($myfile, "RewriteCond %{REQUEST_FILENAME} !-d \n");
-fwrite($myfile, "RewriteCond %{REQUEST_FILENAME} !-f \n");
-fwrite($myfile, "RewriteRule ^(.*)$ index.php?endpoint=$1 [NC,QSA,L] \n");
-fclose($myfile);
-
-//Berechtigung der Config Datei ändern.
-$res = chmod($htaccesFile, 0600);
-if ($res === false) {
-    die("<p  class='err'>Berechtigung der htaccess-Datei können nicht angepasst werden.</p>");
-}
-
-echo "<p>htaccess Datei erfolgreich angelegt.</p>";
-
-
 
 
 require_once '../includes/scheme.php';
